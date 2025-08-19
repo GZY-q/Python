@@ -9,9 +9,11 @@
 age = 18
 name = "tom"
 weight = 260
-stu_id = 100
+stu_id = 1
 
 print('今天我的年龄是%d岁' % age)
 print('我的名字是%s' % name)
-print('我的体重是%.1f公斤' % weight)       #  %.1f   %06d，表示输出的整数显示位数，不足以0补全，超出当前位数则原样输出
-print('我的学号是%d' % stu_id)            #  01%d  %.2f，表示小数点后显示的小数位数。
+print('我的体重是%.2f公斤' % weight)       #  %.1f   %.2f，表示小数点后显示的小数位数。
+print('我的学号是%.06d' % stu_id)            #  01%d  %06d，表示输出的整数显示位数，不足以0补全，超出当前位数则原样输出
+print('我的名字是%s,今年%d岁了' %(name,age))
+print('我的名字是%s,明年%d岁了'%(name,age+1))
