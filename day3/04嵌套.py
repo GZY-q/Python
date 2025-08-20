@@ -8,7 +8,7 @@
 money = 1
 seat = 0
 
-if money == 1:
+if money == 1:   #==判断相等
     print('土豪，请上车')
     # 判断是否能坐下
     if seat == 1:
