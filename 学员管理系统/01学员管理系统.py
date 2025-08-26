@@ -1,3 +1,5 @@
+#等待存储所有学员信息
+info = []
 def info_print():
     print('请选择功能----------')
     print('1.添加学员')
@@ -15,9 +17,15 @@ def add_info():
     new_tel = input('请输入手机号：')
     #判断是否添加这个学员
     global info
+    for i in info:
+        if new_id == i['name']:
+            print('此用户已经存在')
+            #return：退出当前代码
+            return
+
 
     info_dict = {}
-
+#字典创建
     info_dict['id'] = new_id
     info_dict['name'] = new_name
     info_dict['tel'] = new_tel
@@ -27,7 +35,40 @@ def add_info():
     print(info)
 
 
+#todo:删除学员函数
+def del_info():
+    #1.用户输入要删除的姓名
+    del_name = input('请输入要删除的学员姓名:')
+    #2.判断学员是否存在，存在则删除，不存在提示
+    #声明info是全局变量
+    global info
+    #遍历列表
+    for i in info:
+        if del_name == i['name']:
+            info.remove(i)
+            break
+    else:
+        print('该学员不存在')
+    print(info)
+    #判断学员是否存在，存在就删除（列表里的字典）break：这个系统不允许重名，删除了一个不需要遍历，不存在就提示
 
+
+#todo:修改学员信息函数
+
+def modify_info():
+    #1.用户输入要修改的学员姓名
+    modify_name = input('请输入要修改的学员的姓名')
+    global info
+    for i in info:
+        if modify_name == i['name']:
+            i['tel'] = input('输入要修改的电话')
+            break
+    #打印info
+
+    else:
+        print('该学员不存在')
+    #2.判断学员是否存在
+    print(info)
 
 #系统需要循环使用
 while True:
@@ -40,9 +81,10 @@ while True:
         #print('添加')
         add_info()
     elif user_num == 2:
-        print('删除')
+        #print('删除')
+        del_info()
     elif user_num == 3:
-        print('修改')
+        modify_info()
     elif user_num == 4:
         print('查询')
     elif user_num == 5:
